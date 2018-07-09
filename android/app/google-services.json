@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "132910683014",
+    "firebase_url": "https://crafting-closet.firebaseio.com",
+    "project_id": "crafting-closet",
+    "storage_bucket": "crafting-closet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132910683014:android:84ce12c0fac4d5e6",
+        "android_client_info": {
+          "package_name": "studio.proteus.craftcloset"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132910683014-4gqnt35nvc37lrao0t2fllktt70ga59r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "studio.proteus.craftcloset",
+            "certificate_hash": "23f00a66f391a2f894758e8322d4dc6d37325789"
+          }
+        },
+        {
+          "client_id": "132910683014-4eqtg654nh2in64bfjrmoqdb1sleq92n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkG7w9wjVKWTl2GZimeG0SImLpyTzW6VA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132910683014-4eqtg654nh2in64bfjrmoqdb1sleq92n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
