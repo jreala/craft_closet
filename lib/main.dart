@@ -1,35 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
-final GoogleSignIn _googleSignIn = new GoogleSignIn();
-
-/*
-* Source: https://github.com/flutter/plugins/blob/master/packages/firebase_auth/example/lib/main.dart
-* */
-Future<String> _testSignInWithGoogle() async {
-  final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-  final GoogleSignInAuthentication googleAuth =
-  await googleUser.authentication;
-  final FirebaseUser user = await _auth.signInWithGoogle(
-    accessToken: googleAuth.accessToken,
-    idToken: googleAuth.idToken,
-  );
-  assert(user.email != null);
-  assert(user.displayName != null);
-  assert(!user.isAnonymous);
-  assert(await user.getIdToken() != null);
-
-  final FirebaseUser currentUser = await _auth.currentUser();
-  assert(user.uid == currentUser.uid);
-
-  print("this user is signed in: $user");
-
-  return 'signInWithGoogle succeeded: $user';
-}
-
+import 'auth/GoogleAuthentication.dart';
+import 'package:rxdart/rxdart.dart';
 
 void main() => runApp(new MyApp());
 
@@ -63,7 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
 
-    _testSignInWithGoogle();
+    final future = GoogleAuthentication.signInWithGoogle();
+    future.then((str) {
+      print(str);
+    });
   }
 
   @override
