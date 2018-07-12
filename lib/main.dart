@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'auth/GoogleAuthentication.dart';
 import 'package:rxdart/rxdart.dart';
+import 'dart:async';
+import 'package:craft_closet/bloc/GoogleAuthenticationBloc.dart';
+import 'package:craft_closet/model/GoogleAuthenticationModel.dart';
 
 void main() => runApp(new MyApp());
 
@@ -34,9 +36,15 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
 
-    final future = GoogleAuthentication.signInWithGoogle();
-    future.then((str) {
-      print(str);
+    var authBlock = new GoogleAuthenticationBlock();
+    final Stream<GoogleAuthenticationModel> uid = authBlock.handleSignIn();
+    uid.listen((data) {
+      print('State: ${data.state}, UID: ${data.uid}');
+    });
+
+    final Stream<String> uidStream = authBlock.getUID();
+    uidStream.listen((data) {
+      print('Your UID is: $data');
     });
   }
 
