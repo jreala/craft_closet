@@ -3,18 +3,34 @@ import 'package:rxdart/rxdart.dart';
 import 'dart:async';
 import 'package:craft_closet/bloc/GoogleAuthenticationBloc.dart';
 import 'package:craft_closet/model/GoogleAuthenticationModel.dart';
+import 'package:craft_closet/view/NavBar.dart';
 
 void main() => runApp(new MyApp());
+
+final Map<IconData, String> bottomBarMap = Map.from({
+  Icons.dashboard: 'Dashboard',
+  Icons.list: 'Inventory',
+  Icons.note_add: 'Invoice',
+//  Icons.assignment: 'Order Form',
+//  Icons.history: 'Transaction History'
+});
+
+//    Scaffold(
+//    body: new MyHomePage(title: 'Flutter Demo Home Page'),
+//    bottomNavigationBar: new NavBar(bottomBarMap),
+//    );
+
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'Craft Closet',
+      theme: new ThemeData.dark(),
+      home: new Scaffold(
+        body: new MyHomePage(title: 'Flutter Demo Home Page'),
+        bottomNavigationBar: new NavBar(bottomBarMap),
+      )
     );
   }
 }
