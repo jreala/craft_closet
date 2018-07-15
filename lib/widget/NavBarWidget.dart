@@ -8,7 +8,7 @@ class NavBar extends StatelessWidget {
     Icons.list: 'Inventory',
     Icons.attach_money: 'Invoice',
     Icons.assignment: 'Order Form',
-    Icons.history: 'History'
+    Icons.history: 'History',
   });
 
   NavBar(this.index);
