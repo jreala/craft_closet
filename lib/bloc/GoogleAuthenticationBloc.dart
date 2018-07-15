@@ -2,10 +2,11 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:craft_closet/model/GoogleAuthenticationModel.dart';
+import 'package:craft_closet/state/GoogleAuthenticationState.dart';
 
-class GoogleAuthenticationBlock {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = new GoogleSignIn(
+class GoogleAuthenticationBloc {
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  GoogleSignIn _googleSignIn = GoogleSignIn(
       signInOption: SignInOption.standard,
       scopes: [
         'profile',
@@ -13,10 +14,10 @@ class GoogleAuthenticationBlock {
         'https://www.googleapis.com/auth/gmail.send'
       ]);
 
-  GoogleAuthenticationBlock();
+  GoogleAuthenticationBloc();
 
   Stream<GoogleAuthenticationModel> handleSignIn() async* {
-    yield GoogleAuthenticationModel(state: 'Loading');
+    yield GoogleAuthenticationModel(state: GoogleAuthenticationState.Loading);
 
     try {
       final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
@@ -34,10 +35,10 @@ class GoogleAuthenticationBlock {
       final FirebaseUser currentUser = await _auth.currentUser();
       assert(user.uid == currentUser.uid);
 
-      yield GoogleAuthenticationModel(state: 'Success', uid: currentUser.uid);
+      yield GoogleAuthenticationModel(state: GoogleAuthenticationState.Success, uid: currentUser.uid);
     } catch (error) {
       print(error);
-      yield GoogleAuthenticationModel(state: 'Error');
+      yield GoogleAuthenticationModel(state: GoogleAuthenticationState.Error);
     }
   }
 

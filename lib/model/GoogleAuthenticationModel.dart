@@ -1,5 +1,8 @@
+import 'package:craft_closet/state/GoogleAuthenticationState.dart';
+
 class GoogleAuthenticationModel {
-  final String state, uid;
+  final GoogleAuthenticationState state;
+  final String uid;
 
   GoogleAuthenticationModel({this.state, this.uid});
 }
