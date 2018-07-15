@@ -12,9 +12,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       home: Scaffold(
         body: DashboardView()
-//        bottomNavigationBar: NavBar(bottomBarMap),
       ),
-      routes: RouteInitializer(context).build()
+      routes: RouteInitializer(context).build(),
     );
   }
 }

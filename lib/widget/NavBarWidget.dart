@@ -6,7 +6,7 @@ class NavBar extends StatelessWidget {
   final Map<IconData, String> _icons = Map.from({
     Icons.dashboard: 'Dashboard',
     Icons.list: 'Inventory',
-    Icons.note_add: 'Invoice',
+    Icons.attach_money: 'Invoice',
     Icons.assignment: 'Order Form',
     Icons.history: 'History'
   });
