@@ -20,6 +20,10 @@ class NavBar extends StatelessWidget {
       currentIndex: index,
       type: BottomNavigationBarType.shifting,
       onTap: (value) {
+        if(value == index) {
+          return;
+        }
+
         Navigator.of(context).pushNamed(RouteInitializer.getRoute(value));
       }
     );
