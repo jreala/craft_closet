@@ -44,6 +44,7 @@ class GoogleAuthenticationBloc {
 
   Stream<void> handleSignOut() {
     _googleSignIn.disconnect();
+    _auth.signOut();
     return Stream.empty();
   }
 
