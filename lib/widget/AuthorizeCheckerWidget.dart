@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:craft_closet/widget/AuthorizeWidget.dart';
+import 'package:craft_closet/view/AuthorizeView.dart';
 import 'package:flutter/material.dart';
 
 class AuthorizeCheckerWidget extends StatelessWidget {
